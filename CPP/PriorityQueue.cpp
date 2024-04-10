@@ -4,16 +4,9 @@
 
 class HybridPriorityQueue {
 public:
+  // constructor for the priority queue, to populate the queue with negative infinity. 
   HybridPriorityQueue(size_t size)
-      : pq(size, std::numeric_limits<int>::max()) {}
-
-  // Initializes the priority queue with values
-  void initialize(const std::vector<int> &values) {
-    for (size_t i = 0; i < values.size() && i < pq.size(); ++i) {
-      pq[i] = values[i];
-    }
-    buildHeap();
-  }
+      : pq(size, std::numeric_limits<int>::min()) {} 
 
   // Performs a replace operation: removes the top element and inserts a new element
   void replace(int newValue) {
@@ -55,7 +48,12 @@ private:
 
 int main() {
   HybridPriorityQueue pq(5);
-  pq.initialize({10, 20, 30, 40, 50});
+
+  pq.replace(10);
+  pq.replace(20);
+  pq.replace(30);
+  pq.replace(40);
+  pq.replace(50);
 
   std::cout << "Top before replace: " << pq.top() << std::endl;
   pq.replace(25);
