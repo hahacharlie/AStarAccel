@@ -1,6 +1,6 @@
-`include "node_types.sv"
-`include "priority_queue.sv"
-`include "node_cache.sv"
+`include "node.sv"
+`include "open_list_array.sv"
+`include "nodes_cache.sv"
 
 module a_star_accelerator #(
     parameter int GRID_SIZE = 256,  // Assuming a 256x256 grid for simplicity
